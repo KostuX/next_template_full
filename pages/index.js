@@ -1,6 +1,7 @@
 import DefaultLayout from "../layouts/default";
-
-export default function Home() {
+import { withIronSessionSsr } from "iron-session/next";
+import { ironOptions } from "../config/session/session_config";
+export default function Home({ data }) {
   return (
     <DefaultLayout>
       <div className="justify-between h-full text-center ">
@@ -15,3 +16,23 @@ export default function Home() {
     </DefaultLayout>
   );
 }
+export const getServerSideProps = withIronSessionSsr(
+  async function getServerSideProps({ req }) {
+    let endpoint = "http:/localhost:3000/api/hello";
+    let api_data = { data: "test api" };
+
+    let response = await fetch(endpoint, {
+      method: "POST",
+      body: JSON.stringify(api_data),
+      headers: { "Content-type": "application/json" },
+    });
+    let res = await response.json();
+    let data = res;
+
+    return {
+      props: { data },
+    };
+  },
+
+  ironOptions
+);
