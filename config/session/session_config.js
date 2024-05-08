@@ -4,6 +4,6 @@ export const ironOptions = {
 
   cookieOptions: {
     secure: process.env.NODE_ENV === "production",
-    maxAge: process.env.COOKIEAGE,
+    maxAge: process.env.COOKIE_AGE,
   },
 };
