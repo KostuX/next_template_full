@@ -10,11 +10,11 @@ export default function Home({props}) {
 
   async function test(data){
     
-    console.log(data)
+   
 
     
     let endpoint = "/api/test_api";
-    let api_data = { data: "test api" };
+    let api_data = { data:data };
 
     let response = await fetch(endpoint, {
       method: "POST",
@@ -32,7 +32,7 @@ export default function Home({props}) {
         <span className="grid grid-cols-2 gap-4  m-3 h-56 ">
           <span className="border  border-theme_secondary">
           <Button size="sm" onPress={(e)=>{
-            test("Log")
+            test("Read Log")
           }}>
         Read Log
       </Button> 
