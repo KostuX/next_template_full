@@ -32,7 +32,7 @@ export default function Home({props}) {
         <span className="grid grid-cols-2 gap-4  m-3 h-56 ">
           <span className="border  border-theme_secondary">
           <Button size="sm" onPress={(e)=>{
-            test("Read Log")
+            test("Test Log")
           }}>
         Read Log
       </Button> 
