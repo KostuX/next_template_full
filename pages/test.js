@@ -1,20 +1,15 @@
 import DefaultLayout from "../layouts/default";
 import { withIronSessionSsr } from "iron-session/next";
 import { ironOptions } from "../config/session/session_config";
-import React from "react";
-import {Button} from "@nextui-org/react";
+import React, { useState } from "react";
+import { Button, Card, CardBody } from "@nextui-org/react";
 
-
-
-export default function Home({props}) {
-
-  async function test(data){
-    
-   
-
-    
+export default function Home({ props }) {
+  const [textField, setTextField] = useState([""]);
+  let tests_btn = ["Test Log", "Test db", "Test JWT"];
+  async function test(data) {
     let endpoint = "/api/test_api";
-    let api_data = { data:data };
+    let api_data = { data: data };
 
     let response = await fetch(endpoint, {
       method: "POST",
@@ -22,7 +17,8 @@ export default function Home({props}) {
       headers: { "Content-type": "application/json" },
     });
     let res = await response.json();
-    console.log(res)
+
+    setTextField(res.data);
   }
   return (
     <DefaultLayout>
@@ -30,15 +26,31 @@ export default function Home({props}) {
         <div className="border  m-5  border-theme_secondary">Test</div>
 
         <span className="grid grid-cols-2 gap-4  m-3 h-56 ">
-          <span className="border  border-theme_secondary">
-          <Button size="sm" onPress={(e)=>{
-            test("Test Log")
-          }}>
-        Read Log
-      </Button> 
+          <span className="border border-theme_secondary">
+            <span className="grid grid-cols-1 gap-4 m-3 ">
+              {tests_btn.map((item, index) => (
+                <Button
+                  key={index}
+                  size="sm"
+                  onPress={(e) => {
+                    test(item);
+                  }}
+                >
+                  {item}
+                </Button>
+              ))}
+            </span>
           </span>
 
-          <span className="border  border-theme_secondary">Right Panel</span>
+          <span className="border  border-theme_secondary">
+            <Card>
+              <CardBody>
+                {textField.map((e, index) => (
+                  <p key={index}>{e}</p>
+                ))}
+              </CardBody>
+            </Card>
+          </span>
         </span>
       </div>
     </DefaultLayout>
@@ -46,9 +58,8 @@ export default function Home({props}) {
 }
 export const getServerSideProps = withIronSessionSsr(
   async function getServerSideProps({ req }) {
-
     return {
-      props: {  },
+      props: {},
     };
   },
 

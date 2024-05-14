@@ -12,7 +12,7 @@ const config = {
   connectionString: `postgresql://${user}:${password}@${host}:${port}/${database}?sslmode=verify-full`,
   ssl: {
     rejectUnauthorized: false,
-    ca: fs.readFileSync(cert).toString(),
+    // ca: fs.readFileSync(cert).toString(),
   },
 };
 let client;
