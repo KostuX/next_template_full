@@ -6,22 +6,23 @@ import log_write from "../../lib/logs/LOG_write"
 export default withIronSessionApiRoute(test, ironOptions);
 
 async function test(req, res) {
-    let data = req.body.data;
+    let data = req.body.data;    
 
-    
-
-    if(data === "Test Log"){
-      console.log(data === "Test Log")
+    if(data === "Test Log"){  
       let test = {type:'ERROR',data:data}
       log_write(test)
-    let log = log_read('INFO')
+    let log = await log_read('INFO')
+    console.log(log)
     res.status(200).send({ ok: true, data:log });
     }
+    else{
+      req.session.test = {
+        testData: data,
+      };
+      await req.session.save();
+    }
    
-    req.session.test = {
-      testData: data,
-    };
-    await req.session.save();
+   
   
     res.status(200).send({ ok: true, data });
   }
