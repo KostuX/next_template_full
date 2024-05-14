@@ -12,10 +12,10 @@ async function test(req, res) {
 
     if(data === "Test Log"){
       console.log(data === "Test Log")
-      let test = {type:'INFO',data:data}
+      let test = {type:'ERROR',data:data}
       log_write(test)
-      let log = log_read('INFO')
-      res.status(200).send({ ok: true, data:log });
+    let log = log_read('INFO')
+    res.status(200).send({ ok: true, data:log });
     }
    
     req.session.test = {
