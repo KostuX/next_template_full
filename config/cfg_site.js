@@ -9,6 +9,10 @@ export const cfg_site = {
       href: "/",
     },
     {
+      label: "Test",
+      href: "/test",
+    },
+    {
       label: "API",
       href: "/api/hello",
     },
