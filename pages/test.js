@@ -3,6 +3,11 @@ import { withIronSessionSsr } from "iron-session/next";
 import { ironOptions } from "../config/session/session_config";
 import React, { useState } from "react";
 import { Button, Card, CardBody } from "@nextui-org/react";
+import {
+  CredentialsSignInButton,
+  GithubSignInButton,
+  GoogleSignInButton,
+} from "../components/authButtons";
 
 export default function Home({ props }) {
   const [textField, setTextField] = useState([""]);
@@ -39,6 +44,13 @@ export default function Home({ props }) {
                   {item}
                 </Button>
               ))}
+
+              <span className="border border-theme_secondary">
+                OAuth
+                <GoogleSignInButton />
+                <GithubSignInButton />
+                <CredentialsSignInButton />
+              </span>
             </span>
           </span>
 

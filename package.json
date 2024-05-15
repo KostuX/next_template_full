@@ -14,6 +14,7 @@
     "iron-session": "^6.0.2",
     "jsonwebtoken": "^9.0.2",
     "next": "14.2.3",
+    "next-auth": "^4.24.7",
     "next-themes": "^0.3.0",
     "nodemailer": "^6.9.13",
     "pg": "^8.11.5",
