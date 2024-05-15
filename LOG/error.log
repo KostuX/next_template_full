@@ -15,3 +15,7 @@
 535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-41fccee962esm209317265e9.31 - gsmtp
 [ERROR] Wed, 15 May 2024 00:02:15 GMT - Error: Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to
 535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-41fccce2449sm212254925e9.16 - gsmtp
+[ERROR] Wed, 15 May 2024 08:19:45 GMT - Test Log
+[ERROR] Wed, 15 May 2024 08:19:45 GMT - Test Log
+[ERROR] Wed, 15 May 2024 08:19:48 GMT - Test Log
+[ERROR] Wed, 15 May 2024 08:20:02 GMT - error: duplicate key value violates unique constraint "unique_column1_column2"
