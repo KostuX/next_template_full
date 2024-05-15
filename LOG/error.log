@@ -3,3 +3,15 @@
 [ERROR] Tue, 14 May 2024 23:05:53 GMT - Test Log
 [ERROR] Tue, 14 May 2024 23:05:54 GMT - Test Log
 [ERROR] Tue, 14 May 2024 23:05:58 GMT - error: duplicate key value violates unique constraint "unique_column1_column2"
+[ERROR] Tue, 14 May 2024 23:39:39 GMT - Test Log
+[ERROR] Tue, 14 May 2024 23:39:44 GMT - error: duplicate key value violates unique constraint "unique_column1_column2"
+[ERROR] Tue, 14 May 2024 23:57:56 GMT - Error: FC460000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:c:\ws\deps\openssl\openssl\ssl\record\ssl3_record.c:355:
+
+[ERROR] Wed, 15 May 2024 00:00:38 GMT - Error: Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-41f87d20488sm245448995e9.25 - gsmtp
+[ERROR] Wed, 15 May 2024 00:01:22 GMT - Error: Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-41f88110f3esm246296155e9.29 - gsmtp
+[ERROR] Wed, 15 May 2024 00:02:10 GMT - Error: Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-41fccee962esm209317265e9.31 - gsmtp
+[ERROR] Wed, 15 May 2024 00:02:15 GMT - Error: Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-41fccce2449sm212254925e9.16 - gsmtp

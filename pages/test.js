@@ -6,7 +6,7 @@ import { Button, Card, CardBody } from "@nextui-org/react";
 
 export default function Home({ props }) {
   const [textField, setTextField] = useState([""]);
-  let tests_btn = ["Test Log", "Test db", "Test JWT"];
+  let tests_btn = ["Test Log", "Test db", "Test JWT", "Test Email"];
   async function test(data) {
     let endpoint = "/api/test_api";
     let api_data = { data: data };

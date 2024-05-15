@@ -5,8 +5,9 @@ import log_write from "../../lib/logs/LOG_write";
 import createTable from "../../lib/database/query_pg/createTable";
 import add from "../../lib/database/query_pg/add";
 import get from "../../lib/database/query_pg/get";
-var jwt = require("jsonwebtoken");
-var token = jwt.sign({ foo: "bar" }, "shhhhh");
+import jwt from "jsonwebtoken";
+import sendMail from "../../lib/email/email";
+//const jwt = require("jsonwebtoken");
 
 export default withIronSessionApiRoute(test, ironOptions);
 
@@ -35,13 +36,18 @@ async function test(req, res) {
     res.status(200).send({ ok: a_res.ok, data: response });
   }
   if (data === "Test JWT") {
-    const h_token = req.header("Authorization");
-    const decoded = jwt.verify(token, "your-secret-key");
-    req.userId = decoded.userId;
-    console.log(data);
-    const token = jwt.sign({ userId: user._id }, "your-secret-key", {
-      expiresIn: "1h",
+    let jwt_key = process.env.JWT_KEY;
+    let jwt_exp = process.env.JWT_EXP;
+    const token = jwt.sign({ userId: "user_id" }, jwt_key, {
+      expiresIn: jwt_exp,
     });
+    // const h_token = req.header("Authorization");
+    // const decoded = jwt.verify(h_token, "your-secret-key");
+    // req.userId = decoded.userId;
+    res.status(200).send({ ok: false, data: [token] });
+  }
+  if (data === "Test Email") {
+    sendMail("goldiskiker@gmail.com", "Test Mail");
     res.status(200).send({ ok: false, data: ["TODO"] });
   }
 
