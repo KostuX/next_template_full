@@ -47,9 +47,16 @@ async function test(req, res) {
     res.status(200).send({ ok: false, data: [token] });
   }
   if (data === "Test Email") {
-    let response = await sendMail("goldiskiker@gmail.com", "Test Mail");
-    res.status(200).send({ ok: false, data: [response.data] });
+    await sendMail("goldiskiker@gmail.com", "Test Mail", (e)=>{
+      if(e.ok){        
+        res.status(200).send({ ok: false, data: [e.data] });
+      }
+    });
+    
+  }
+  else{
+    res.status(200).send({ ok: true, data });
   }
 
-  res.status(200).send({ ok: true, data });
+ 
 }
